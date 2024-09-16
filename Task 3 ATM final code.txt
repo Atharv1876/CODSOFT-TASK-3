@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class main{
+    
+    //function of atminterface
+    public static void atmfun(){
+        
+    System.out.println("choose the number");
+     System.out.println("0. for Exit");
+      System.out.println("1. for withdrawals");
+       System.out.println("2. for Deposits");
+        System.out.println("3. for cheack Balance");
+    }
+    //function of withdrawal
+    public static int withdrl(int a,int b){
+         if(a>b){
+            System.out.println("your withdrawal amount is grater than balance");
+            } else {
+            System.out.println("successfully amount is withdrawal");
+            b = b - a;
+            }
+            return b;
+    }
+    //function of deposit
+     public static int dpost(int a, int b){
+        System.out.println("successfully amount is deposit");
+        b = b + a;
+        return b;
+     }
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int balance = 10000;
+    int c = 1;
+    for(int i=0; i<c; i++){
+    atmfun();
+    int a = sc.nextInt();
+    switch (a){
+        case 1: 
+            System.out.println("Enter the Withdrawal amount");
+            //now here,  int balance = 10,000 rs.
+            int withdrawal = sc.nextInt();
+            //calling of function of withdrawal
+            int xx = withdrl(withdrawal,balance);
+            balance = balance - withdrawal;
+           
+        break;
+        case 2: 
+            System.out.println("Enter the deposit amount");
+            int deposit = sc.nextInt();
+            //calling of function of deposit
+            dpost(deposit,balance);
+            balance = balance + deposit;
+        break;
+        case 3: 
+            System.out.println("your current balance is");
+            System.out.println(balance);
+        break;
+         }
+         c = 10 * a;
+      }
+   }
+}
